@@ -48,4 +48,13 @@ public class Cuenta {
         return this.saldo;
     }
     
+    public double transferencia(Cuenta c, double cantidad) {
+        if (cantidad <= this.saldo) {
+            c.saldo += cantidad;
+            this.saldo -= cantidad;
+        } else {
+            System.out.println("Saldo insuficiente");
+        }
+        return this.saldo;
+    }
 }//cuenta
