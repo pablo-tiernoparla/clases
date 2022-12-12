@@ -34,10 +34,18 @@ public class Cuenta {
         return "Cuenta [id=" + id + ", nombreCliente=" + nombreCliente + ", saldo=" + saldo + "]";
     }
 
-    public double credito(double cantidad){
-        this.saldo += cantidad;
+    public double credito(double cantidad) {
+        this.saldo -= cantidad;
         return this.saldo;
     }
     
+    public double debito(double cantidad) {
+        if(cantidad <= this.saldo) {
+            this.saldo -= cantidad;
+        } else {
+            System.out.println("Saldo insuficiente");
+        }
+        return this.saldo;
+    }
     
 }//cuenta
