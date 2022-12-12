@@ -1,13 +1,13 @@
-package com.main.java.daw.programacion.clases;
+package daw.programacion.clases;
 
-public class Employee {
+public class Empleado {
     
     private int id;
     private String firstName;
     private String lastName;
     private double salary;
 
-    public Employee(int id, String firstName, String lastName, double salary) {
+    public Empleado(int id, String firstName, String lastName, double salary) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,4 +52,4 @@ public class Employee {
         this.salary = this.salary * 1 + (percentage / 100);
         return this.salary;
     }
-}//employee
+}//empleado
