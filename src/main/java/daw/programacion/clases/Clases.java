@@ -3,16 +3,22 @@ package daw.programacion.clases;
 public class Clases {
     public static void main( String[] args ){
         
-        int id = 1;
+        String id = "1";
         String nombre = "pepe";
-        String apellido = "perez";
-        double salario = 100;
+        double saldo = 100;
 
-        Empleado pepe = new Empleado(id, nombre, apellido, salario);
+        Cuenta pepe = new Cuenta(id, nombre, saldo);
 
-        double aumento = 5;
-        pepe.raiseSalary(aumento);
+        double cantidad = 200;
+        pepe.credito(cantidad);
+        System.out.println(pepe);
 
+        pepe.credito(-cantidad);
+
+        pepe.debito(cantidad);
+
+        cantidad = 50;
+        pepe.debito(cantidad);
         System.out.println(pepe);
     }//main
 }//clases
