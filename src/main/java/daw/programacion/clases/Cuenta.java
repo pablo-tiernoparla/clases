@@ -4,6 +4,7 @@ public class Cuenta {
     
     private String id;
     private String nombreCliente;
-    private double saldo;
-    
+    private double saldo = 0;
+
+
 }//cuenta
