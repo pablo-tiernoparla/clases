@@ -34,6 +34,10 @@ public class Cuenta {
         return "Cuenta [id=" + id + ", nombreCliente=" + nombreCliente + ", saldo=" + saldo + "]";
     }
 
+    public double credito(double cantidad){
+        this.saldo += cantidad;
+        return this.saldo;
+    }
     
     
 }//cuenta
