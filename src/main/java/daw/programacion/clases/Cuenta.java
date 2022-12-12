@@ -17,6 +17,18 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
+    public String getNombreCliente() {
+        return this.nombreCliente;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
     
     
 }//cuenta
