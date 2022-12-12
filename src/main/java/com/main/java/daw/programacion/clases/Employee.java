@@ -40,8 +40,16 @@ public class Employee {
                 + "]";
     }
 
-    
+    public String getName() {
+        return this.firstName + " " + this.lastName;
+    }
 
-    
+    public double getAnualSalary() {
+        return this.salary * 12;
+    }
 
+    public double raiseSalary(double percentage) {
+        this.salary = this.salary * 1 + (percentage / 100);
+        return this.salary;
+    }
 }//employee
