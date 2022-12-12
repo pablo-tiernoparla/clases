@@ -29,6 +29,11 @@ public class Cuenta {
         return this.saldo;
     }
 
+    @Override
+    public String toString() {
+        return "Cuenta [id=" + id + ", nombreCliente=" + nombreCliente + ", saldo=" + saldo + "]";
+    }
+
     
     
 }//cuenta
