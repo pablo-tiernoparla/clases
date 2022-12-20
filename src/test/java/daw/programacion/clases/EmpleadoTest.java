@@ -76,4 +76,10 @@ public class EmpleadoTest {
         double expected = 10.01;
         assertEquals(expected, empleado1.raiseSalary(1));
     }
+
+    @Test
+    public void aumentarSalarioNegativo() {
+        double expected = 9.99;
+        assertEquals(expected, empleado1.raiseSalary(-1));
+    }
 }
