@@ -47,11 +47,22 @@ public class Cuenta {
         }
         return this.saldo;
     }
+
+    public double meterDinero(double cantidad){
+        this.saldo += cantidad;
+        return this.saldo;
+    }
+
+    public double sacarDinero(double cantidad){
+        this.saldo -= cantidad;
+        return this.saldo;
+    }
     
     public double transferencia(Cuenta c, double cantidad) {
-        if (cantidad <= this.saldo) {
-            c.saldo += cantidad;
-            this.saldo -= cantidad;
+        double saldoActual = this.saldo;
+        this.sacarDinero(cantidad);
+        if (this.saldo != saldoActual) {
+            c.meterDinero(cantidad);
         } else {
             System.out.println("Saldo insuficiente");
         }
