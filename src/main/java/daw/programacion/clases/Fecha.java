@@ -44,6 +44,6 @@ public class Fecha {
 
     @Override
     public String toString(){
-        return day + "/" + month + "/" + year;
+        return this.day + "/" + this.month + "/" + this.year;
     }    
 }
