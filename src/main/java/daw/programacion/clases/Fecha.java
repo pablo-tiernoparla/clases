@@ -25,15 +25,24 @@ public class Fecha {
     }
 
     public void setDay(int day) {
-        this.day = day;
+        if (day > 0 && day < 32){
+            this.day = day;
+        }
+        throw new datoMalAsignado(day + "must be between 1 and 31");
     }
 
     public void setMonth(int month) {
-        this.month = month;
+        if (month > 0 && month < 13){
+            this.month = month;
+        }
+        throw new datoMalAsignado(month + "must be between 1 and 12");
     }
 
     public void setYear(int year) {
-        this.year = year;
+        if (year > 1900 && year < 9999){
+            this.year = year;
+        }
+        throw new datoMalAsignado(year + "must be between 1900 and 9999");
     }
 
     public void setDate(int day, int month, int year){
