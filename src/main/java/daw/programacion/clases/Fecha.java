@@ -28,7 +28,7 @@ public class Fecha {
         if (day > 0 && day < 32){
             this.day = day;
         }
-        throw new datoMalAsignado(day + "must be between 1 and 31");
+        throw new Exception("day must be between 1 and 31");
     }
 
     public void setMonth(int month) {

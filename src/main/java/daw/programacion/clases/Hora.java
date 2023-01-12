@@ -47,13 +47,15 @@ public class Hora {
         return this.hour + ":" + this.minute + ":" + this.second;
     }
 
-    public String nextSecond(){
-        second++;
-        return this.hour + ":" + this.minute + ":" + this.second;
+    public Hora nextSecond(){
+        Hora a = new Hora(this.hour, this.minute, this.second);        
+        this.second += 1;
+        return a;
     }
 
-    public String previousSecond(){
-        second--;
-        return this.hour + ":" + this.minute + ":" + this.second;
+    public Hora previousSecond(){
+        Hora a = new Hora(this.hour, this.minute, this.second);
+        this.second -= 1;   
+        return a;
     }
 }
