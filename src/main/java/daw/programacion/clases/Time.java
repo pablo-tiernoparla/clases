@@ -49,12 +49,34 @@ public class Time {
 
     public Time nextSecond(){
         Time a = new Time(this.hour, this.minute, this.second);        
+        if (this.second == 0){
+            if (this.minute == 0){
+                if (this.hour == 0){
+                    this.hour = 24;
+                    this.hour +=1;
+                }
+                this.minute = 60;
+                this.minute += 1;
+            }
+            this.second = 60;
+        }
         this.second += 1;
         return a;
     }
 
     public Time previousSecond(){
         Time a = new Time(this.hour, this.minute, this.second);
+        if (this.second == 0){
+            if (this.minute == 0){
+                if (this.hour == 0){
+                    this.hour = 24;
+                    this.hour -=1;
+                }
+                this.minute = 60;
+                this.minute -= 1;
+            }
+            this.second = 60;
+        }
         this.second -= 1;   
         return a;
     }
