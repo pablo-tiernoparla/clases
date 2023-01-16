@@ -6,10 +6,14 @@ public class Autor {
     private String email;
     private char gender;
 
-    public Autor(String name, String email, char gender){
+    public Autor(String name, String email, char gender) throws IllegalArgumentException {
         this.name = name;
         this.email = email;
-        this.gender = gender;
+        if (gender == 'm' || gender == 'f') {
+            this.gender = gender;
+        } else {
+            throw new IllegalArgumentException("genero invalido");
+        }
     }
 
     public String getName() {
@@ -29,7 +33,7 @@ public class Autor {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Autor: nombre= " + this.name + "email= " + this.email + "genero= " + this.gender;
-    }    
+    }
 }
