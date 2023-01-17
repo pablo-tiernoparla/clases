@@ -7,9 +7,10 @@ public class Time {
     private int second;
 
     public Time(int hour, int minute, int second) throws IllegalArgumentException {
-        this.hour = timeLimit(24, hour);
-        this.minute = timeLimit(60, minute);
-        this.second = timeLimit(60, second);
+        checkInputs(second, minute, hour);
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
     }
 
     public int getHour() {
@@ -17,11 +18,8 @@ public class Time {
     }
 
     public void setHour(int hour) throws IllegalArgumentException {
-        if (1 > hour && hour > 23) {
-            this.hour = hour;
-        } else {
-            throw new IllegalArgumentException(hour + "numero invalido");
-        }
+        checkInputs(0, 0, hour);
+        this.hour = hour;
     }
 
     public int getMinute() {
@@ -29,11 +27,8 @@ public class Time {
     }
 
     public void setMinute(int minute) throws IllegalArgumentException {
-        if (1 > minute && minute > 59) {
-            this.minute = minute;
-        } else {
-            throw new IllegalArgumentException(hour + "numero invalido");
-        }
+        checkInputs(0, minute, 0);
+        this.minute = minute;
     }
 
     public int getSecond() {
@@ -41,21 +36,15 @@ public class Time {
     }
 
     public void setSecond(int second) throws IllegalArgumentException {
-        if (1 > second && second > 59) {
-            this.second = second;
-        } else {
-            throw new IllegalArgumentException(hour + "numero invalido");
-        }
+        checkInputs(second, 0, 0);
+        this.second = second;
     }
 
     public void setTime(int hour, int minute, int second) throws IllegalArgumentException {
-        if (1 > hour && hour > 23 && 0 > minute && minute > 59 && 0 > second && second > 59) {
-            this.hour = hour;
-            this.minute = minute;
-            this.second = second;
-        } else {
-            throw new IllegalArgumentException(hour + "numero invalido");
-        }
+        checkInputs(second, minute, hour);
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
     }
 
     @Override
@@ -70,48 +59,48 @@ public class Time {
     }
 
     public Time nextSecond() {
-        Time a = new Time(this.hour, this.minute, this.second);
-        if (this.second == 0) {
-            if (this.minute == 0) {
-                if (this.hour == 0) {
-                    this.hour = 24;
-                    this.hour += 1;
-                }
-                this.minute = 60;
-                this.minute += 1;
-            }
-            this.second = 60;
+        if (this.second == 59 && this.minute == 59 && this.hour == 23){
+            this.second = 0;
+            this.minute = 0;
+            this.hour = 0;
+        } else if (this.second == 59 && this.minute == 59){
+            this.second = 0;
+            this.minute = 0;
+            this.hour += 1;
+        } else if (this.second == 59){
+            this.second = 0;
+            this.minute += 1;
+        } else {
+            this.second += 1;
         }
-        this.second += 1;
-        return a;
+        return this;
     }
 
     public Time previousSecond() {
-        Time a = new Time(this.hour, this.minute, this.second);
-        if (this.second == 0) {
-            if (this.minute == 0) {
-                if (this.hour == 0) {
-                    this.hour = 24;
-                    this.hour -= 1;
-                }
-                this.minute = 60;
-                this.minute -= 1;
-            }
-            this.second = 60;
+        if (this.second == 0 && this.minute == 0 && this.hour == 0){
+            this.second = 59;
+            this.minute = 59;
+            this.hour = 23;
+        } else if (this.second == 0 && this.minute == 0){
+            this.second = 59;
+            this.minute = 59;
+            this.hour--;
+        } else if (this.second == 0){
+            this.second = 59;
+            this.minute--;
+        } else {
+            this.second--;
         }
-        this.second -= 1;
-        return a;
+        return this;
     }
 
     private String formatearAtributo(int atributo) {
         return (atributo < 10) ? "0" + atributo : Integer.toString(atributo);
     }
 
-    private int timeLimit(int limit, int atributo) {
-        if (0 < atributo && atributo < limit) {
-            return atributo;
-        } else {
-            throw new IllegalArgumentException("numero invalido");
+    private void checkInputs(int sec, int min, int hora) throws IllegalArgumentException{
+        if(!(sec >= 0 && sec <= 59) || !(min >= 0 && min <= 59) || !(hora >= 0 && hora <= 23)){
+            throw new IllegalArgumentException();
         }
     }
 }
