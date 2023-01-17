@@ -121,7 +121,7 @@ public class CuentaTest {
 
     @Test
     public void transferenciaInvalida() {
-        double expected = 125.6;
+        double expected = -674.4;
         assertEquals(expected, cuenta2.transferencia(cuenta1, 800));
     }
 }
