@@ -60,7 +60,13 @@ public class Time {
 
     @Override
     public String toString() {
-        return formatearAtributo(hour) + ":" + formatearAtributo(minute) + ":" + formatearAtributo(second);
+        int[] atributosI = {this.hour, this.minute, this.second};
+        String tiempo = formatearAtributo(atributosI[0]);
+
+        for (int i = 1 ; i < atributosI.length ; i++){
+            tiempo += ":" + formatearAtributo(atributosI[i]);
+        }
+        return tiempo;
     }
 
     public Time nextSecond() {
