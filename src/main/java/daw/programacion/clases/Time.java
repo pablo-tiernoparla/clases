@@ -7,12 +7,20 @@ public class Time {
     private int second;
 
     public Time(int hour, int minute, int second) throws IllegalArgumentException{
-        if (1 > hour && hour > 23 && 0 > minute && minute > 59 && 0 > second && second > 59) {
+        if (1 < hour && hour <= 23) {
             this.hour = hour;
+        } else {
+            throw new IllegalArgumentException("hora invalida");
+        }
+        if(1 < minute && minute <= 59){
             this.minute = minute;
+        } else {
+            throw new IllegalArgumentException("minuto invalido");
+        }
+        if(1 < second && second <= 59){
             this.second = second;
         } else {
-            throw new IllegalArgumentException("numeros invalidos");
+            throw new IllegalArgumentException("segundo invalido");
         }
     }
 
