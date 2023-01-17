@@ -64,7 +64,7 @@ public class Time {
 
     @Override
     public String toString() {
-        return this.hour + ":" + this.minute + ":" + this.second;
+        return formatearAtributo(hour) + ":" + formatearAtributo(minute) + ":" + formatearAtributo(second);
     }
 
     public Time nextSecond() {
@@ -99,5 +99,9 @@ public class Time {
         }
         this.second -= 1;
         return a;
+    }
+
+    private String formatearAtributo(int atributo){
+        return (atributo < 10) ? "0" + atributo : Integer.toString(atributo);
     }
 }
